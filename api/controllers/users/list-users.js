@@ -1,3 +1,5 @@
+
+
 module.exports = {
 
 
@@ -20,12 +22,16 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
-
-    // All done.
-    return;
+  fn: async function () {
+    var id=1;
+    var allUsers = await Users.find({
+      select: ['emailAddress', 'fullName']
+    });
+    this.req.me=allUsers;
+    sails.log(this.req.me);
+    sails.log('SVF');
+    
 
   }
-
 
 };
