@@ -15,7 +15,7 @@ module.exports = {
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/user/addUser'
+      viewTemplatePath: 'pages/user/createUser'
     },
   },
 
@@ -29,3 +29,4 @@ module.exports = {
 
 
 };
+

@@ -21,7 +21,9 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'GET /users/listUsers': { action: 'users/list-users' },
-  'GET /users/add': { action: 'users/add-user' },
+  'GET /users/add': { action: 'users/create-user' },
+  'GET /users/update': { action: 'users/update-user' },
+  'GET /users/delete': { action: 'users/delete-user' },
 
 
   
