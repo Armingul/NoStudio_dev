@@ -69,7 +69,6 @@
     "no-redeclare":                 ["warn"],
     "no-return-assign":             ["error", "always"],
     "no-sequences":                 ["error"],
-    "no-trailing-spaces":           ["warn"],
     "no-undef":                     ["off"],
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // ^^Note: If this "no-undef" rule is enabled (set to `["error"]`), then all model globals

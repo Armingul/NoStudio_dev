@@ -20,6 +20,11 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'GET /users/listUsers': { action: 'users/list-users' },
+  'GET /users/add': { action: 'users/add-user' },
+
+
+  
 
 
   /***************************************************************************
