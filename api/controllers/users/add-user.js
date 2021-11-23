@@ -15,7 +15,7 @@ module.exports = {
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/addUser'
+      viewTemplatePath: 'pages/user/addUser'
     },
   },
 
