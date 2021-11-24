@@ -18,18 +18,25 @@ module.exports = {
     success: {
       responseType: 'view',
       viewTemplatePath: 'pages/user/listUsers'
-    },
+    }
   },
 
 
-  fn: async function () {
-    var id=1;
+  fn: async function (inputs,exits) {
+  
     var allUsers = await Users.find({
-      select: ['emailAddress', 'fullName']
+      
     });
-    this.req.me=allUsers;
-    sails.log(this.req.me);
+
+    sails.log(inputs);
+    this.req.body=allUsers;
     sails.log('SVF');
+    var string=JSON.stringify(allUsers);
+    var json=JSON.parse(string);
+    var x = json[0].fullName;
+    sails.log(json);
+   
+    return exits.success({json});
     
 
   }
