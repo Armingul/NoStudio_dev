@@ -3,19 +3,45 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>#</th>
-            <th>Title</th>
+            <th>Id</th>
+            <th>FullName</th>
+            <th>Password</th>
+            <th>Email</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <% json.forEach(function(user){ %>
             <tr>
+                <td><%= user.id %></td>
                 <td><%= user.fullName %></td>
+                <td><%= user.password %></td>
                 <td><%= user.emailAddress %></td>
                 <td>
+                    <form id="formulario" action="/users/update" method="POST" >
+
+                        <input type="hidden" name="id" value="<%= user.id %>">
+                        <input type="hidden" name="fullName" value="<%= user.fullName %>">
+                        <input type="hidden" name="password" value="<%= user.password %>">
+                        <input type="hidden" name="emailAddress" value="<%= user.emailAddress %>">
+                        <input type="submit" class="btn btn-primary" value="Edit">
+                        
+
+                    </form>
+                   
+                    <form class="d-inline" action="/users/delete" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
                 </td>
+              
+
+              
             </tr>
         <% }) %>
     </tbody>
 </table>
+
+
+
+
+
