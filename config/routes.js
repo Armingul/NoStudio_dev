@@ -24,7 +24,7 @@ module.exports.routes = {
   'GET /users/add': { action: 'users/create-user' },
   'GET /users/update': { action: 'users/update-user' },
   'GET /users/delete': { action: 'users/delete-user' },
-
+  'GET /products/list-products': { action: 'products/list-products' },
 
   
 
