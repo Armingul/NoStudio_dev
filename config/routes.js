@@ -21,16 +21,12 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'GET /users/listUsers': { action: 'users/list-users' },
-  'GET /users/add': { action: 'users/create-user' },
+  'POST /users/add': { action: 'users/create-user' },
   'POST /users/update': { action: 'users/update-user' },
-  'GET /users/delete': { action: 'users/delete-user' },
-<<<<<<< HEAD
+  'POST /users/modifyUser': { action: 'users/modify-user' },
+  'POST /users/delete': { action: 'users/delete-user' },
   'GET /products/list-products': { action: 'products/list-products' },
-=======
-
-  
-
->>>>>>> 5ef49e0d78096d8a55f55c960615efd23f10ff12
+  'GET /users/showAdd': { action: 'users/mostrar-create-user' },
 
   
 
