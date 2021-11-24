@@ -8,7 +8,27 @@ module.exports = {
 
 
   inputs: {
-
+    id: {
+      type: 'string',
+      required: true,
+      unique: true,
+    },
+    emailAddress: {
+      type: 'string',
+      required: true,
+      unique: true,
+      isEmail: true,
+    },
+    fullName: {
+      type: 'string',
+      required: true,
+    },
+   
+    password: {
+      type: 'string',
+      required: true,
+      minLength: 6,
+    },
   },
 
 
@@ -20,10 +40,12 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function ({id,emailAddress,fullName,password},exits) {
 
+
+    sails.log();
     // All done.
-    return;
+    return exits.success({id,emailAddress,fullName,password});
 
   }
 

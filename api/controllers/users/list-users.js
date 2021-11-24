@@ -24,16 +24,17 @@ module.exports = {
 
   fn: async function (inputs,exits) {
   
-    var allUsers = await Users.find({
-      
-    });
+    var allUsers = await Users.find({});
 
-    sails.log(inputs);
-    this.req.body=allUsers;
-    sails.log('SVF');
+    sails.log(allUsers);
+  
+
     var string=JSON.stringify(allUsers);
+
+    sails.log(allUsers);
+
     var json=JSON.parse(string);
-    var x = json[0].fullName;
+
     sails.log(json);
    
     return exits.success({json});
