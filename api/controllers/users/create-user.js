@@ -1,4 +1,4 @@
-const listUsers = require("./list-users");
+
 
 module.exports = {
 
@@ -61,10 +61,6 @@ module.exports = {
       // All done.
       return exits.success({msg: "Usuario creado"});
     }
-    
-
-    
-
   }
 
 
