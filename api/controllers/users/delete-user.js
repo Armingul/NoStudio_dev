@@ -8,22 +8,31 @@ module.exports = {
 
 
   inputs: {
-
+    id: {
+      type: 'string',
+      required: true,
+      unique: true,
+    },
   },
 
 
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/user/deleteUser'
+      viewTemplatePath: 'pages/user/listUsers'
     },
   },
 
 
-  fn: async function (inputs) {
-
+  fn: async function ({id},exits) {
+    await Users.destroy({
+      id:id
+    });
     // All done.
-    return;
+    var allUsers = await Users.find({});
+    var string=JSON.stringify(allUsers);
+    var json=JSON.parse(string);
+    return exits.success({json,msg:'User eliminado'});
 
   }
 

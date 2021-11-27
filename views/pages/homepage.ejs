@@ -1,4 +1,28 @@
-<h1 class="display-4">Welcome to Userrrrrrrrasdasd</h1>
-<p class="mb-4">Sails.js app</p>
-<a class="nav-link" href="users/listUsers">Users</a>
-<a class="nav-link" href="users/add">Add User</a>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form  class="box" id="formulario" action="/login" method="post" >
+                    <h1>Login</h1>
+                    <%if(msg){%>
+                        <%if(msg=='Login incorrecto'){%>
+                            <div class="alert alert-danger" role="alert">
+                                <h3><%- msg%></h3>
+                              </div>
+                        <%}%>
+                            
+                    <%}%>
+                    <p class="text-muted"> Please enter your login and password!</p>
+                    <input name="emailAddress" type="email" pattern="^\s*\S*\s*$" required></input>
+                    <input  name="password" pattern=".{6,}" type="password" required></input>
+                    <input type="submit" value="Login">
+                    <div class="col-md-12"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

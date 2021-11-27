@@ -1,5 +1,15 @@
+<%- include('../login/dashboard.ejs') %>
 
 <h1 class="display-4">Users</h1>
+
+<%if(msg){%>
+    <%if(msg=='User eliminado'){%>
+        <div class="alert alert-success" role="alert">
+            <h3><%- msg%></h3>
+          </div>
+    <%}%>
+<%}%>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -29,7 +39,8 @@
 
                     </form>
                    
-                    <form class="d-inline" action="/users/delete" method="post">
+                    <form id="formulario" action="/users/delete" method="POST">
+                        <input type="hidden" name="id" value="<%= user.id %>">
                         <input type="submit" value="Delete" class="btn btn-danger">
                     </form>
                 </td>

@@ -43,9 +43,9 @@ module.exports = {
   fn: async function ({id,emailAddress,fullName,password},exits) {
 
 
-    sails.log();
+    
     // All done.
-    return exits.success({id,emailAddress,fullName,password});
+    return exits.success({id,emailAddress,fullName,password,msg:''});
 
   }
 

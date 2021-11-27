@@ -24,6 +24,10 @@
 // Ensure we're in the project directory, so cwd-relative paths work as expected
 // no matter where we actually lift from.
 // > Note: This is not required in order to lift, but it is a convenient default.
+const express = require("express");
+const path = require("path");
+const app = express();
+app.set("views", path.join(__dirname, "vistas")); //directorio donde van a estas las vistas plantillas
 process.chdir(__dirname);
 
 
