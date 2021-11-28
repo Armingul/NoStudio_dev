@@ -19,16 +19,26 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+
+    /* MISC */
+  'GET /dashboard': { action: 'dashboard' },
+  'POST /login': { action: 'Login/login' },
   '/': { action: 'homepage' },
+
+    /* USERS */
   'GET /users/listUsers': { action: 'users/list-users' },
   'POST /users/add': { action: 'users/create-user' },
   'POST /users/update': { action: 'users/update-user' },
   'POST /users/modifyUser': { action: 'users/modify-user' },
   'POST /users/delete': { action: 'users/delete-user' },
-  'GET /products/list-products': { action: 'products/list-products' },
   'GET /users/showAdd': { action: 'users/mostrar-create-user' },
-  'GET /dashboard': { action: 'dashboard' },
-  'POST /login': { action: 'Login/login' },
+
+
+    /* PRODUCTS */
+  'GET /products/list-products': { action: 'products/list-products' },
+  'GET /products/show-create-product': { action: 'products/show-create-product' },
+
+
 
 
   
