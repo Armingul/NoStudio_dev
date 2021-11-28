@@ -28,29 +28,27 @@ module.exports = {
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/login/dashboard'
+      viewTemplatePath: 'pages/dashboard'
     },
     errorLogin:{
       responseType: 'view',
-      viewTemplatePath: 'pages/homepage'
+      viewTemplatePath: 'pages/login/login'
     }
   },
 
 
   fn: async function ({emailAddress,password},exits) {
 
+   
     
-    sails.log(emailAddress);
-    sails.log(password);
-    
-    
+    sails.log(this.req.sessionID);
     var find =await Admin.findOne({
-
+      
       emailAddress:emailAddress,
       password:password
 
     });
-    sails.log(find);
+
     if(find){
       return exits.success({msg:""});
     }else{

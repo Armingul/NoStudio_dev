@@ -31,8 +31,8 @@ module.exports = {
     // All done.
     var allUsers = await Users.find({});
     var string=JSON.stringify(allUsers);
-    var json=JSON.parse(string);
-    return exits.success({json,msg:'User eliminado'});
+    var users=JSON.parse(string);
+    return exits.success({users,msg:'User eliminado'});
 
   }
 

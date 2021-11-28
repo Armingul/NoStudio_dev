@@ -13,21 +13,68 @@ module.exports = {
       required: true,
       unique: true,
     },
-    emailAddress: {
+    password: {
+      type: 'string',
+      required: true,
+      description: 'Securely hashed representation of the user\'s login password.',
+      protect: true,
+ 
+    },
+    email: {
       type: 'string',
       required: true,
       unique: true,
       isEmail: true,
+      maxLength: 200,
+     
     },
-    fullName: {
+    nombre: {
       type: 'string',
       required: true,
-    },
+      description: 'Full representation of the user\'s name.',
+      maxLength: 60,
    
-    password: {
+    },
+    appellidos: {
       type: 'string',
       required: true,
-      minLength: 6,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 120,
+   
+    },
+    direccion: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 120,
+   
+    },
+    codPostal: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 6,
+   
+    },
+    telefono: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 9,
+   
+    },
+    tipoDocumento: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 3,
+   
+    },
+    numDocumento: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 9,
     },
   },
 
@@ -37,38 +84,50 @@ module.exports = {
       responseType: 'view',
       viewTemplatePath: 'pages/user/updateUser'
     },
+    notChange: {
+      responseType: 'view',
+      viewTemplatePath: 'pages/user/updateUser'
+    },
+    updateError: {
+      responseType: 'view',
+      viewTemplatePath: 'pages/user/updateUser'
+    },
   },
 
 
-  fn: async function ({id,emailAddress,fullName,password},exits) {
-
+  fn: async function (inputs,exits) {
+    var user =inputs;
     // All done.
-    sails.log(id);
-    sails.log(emailAddress);
-    sails.log(fullName);
-    sails.log(password);
-    var user = await Users.findOne({
 
-      id:id
+    var userFind = await Users.findOne({
+
+      id:inputs.id
     });
-    var string=JSON.stringify(user);
+    var string=JSON.stringify(userFind);
     var json=JSON.parse(string);
-    sails.log(json);
-    if(json.fullName===fullName && json.emailAddress===emailAddress && json.password===password){
-      return exits.success({id,emailAddress,fullName,password,msg:"No se ha modificado campos."});
+ 
+    if(json.password===user.password && json.email===user.email && json.nombre===user.nombre && json.appellidos===user.appellidos && json.direccion===user.direccion
+      && json.codPostal===user.codPostal && json.telefono===user.telefono && json.telefono===user.telefono && json.numDocumento === user.numDocumento){
+      return exits.notChange({user,msg:"No se ha modificado campos"});
     }else{
       var update = await Users.updateOne({
-        id:id,
-  
-  
+        id:inputs.id,
       }).set({
-        emailAddress:emailAddress,
-        fullName:fullName,
-        password:password
+        password:inputs.password,
+        email:inputs.email,
+        nombre:inputs.nombre,
+        appellidos:inputs.appellidos,
+        direccion:inputs.direccion,
+        codPostal:inputs.codPostal,
+        telefono:inputs.telefono,
+        tipoDocumento:inputs.tipoDocumento,
+        numDocumento:inputs.numDocumento
       });
-      sails.log(update);
+
       if(update){
-        return exits.success({id,emailAddress,fullName,password,msg:'Usuario actualizado.'});
+        return exits.success({user,msg:'Usuario actualizado'});
+      }else{
+        return exits.updateError({user,msg:'Ha habido un error al actualizar el usuario'});
       }
     }
   }

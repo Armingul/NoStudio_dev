@@ -27,7 +27,7 @@ module.exports = {
       
     });
 
-    sails.log(inputs);
+    
     var string=JSON.stringify(allProducts);
     var json=JSON.parse(string);
     console.log(json);
