@@ -1,3 +1,4 @@
+
 module.exports = {
 
 
@@ -13,21 +14,68 @@ module.exports = {
       required: true,
       unique: true,
     },
-    emailAddress: {
+    password: {
+      type: 'string',
+      required: true,
+      description: 'Securely hashed representation of the user\'s login password.',
+      protect: true,
+ 
+    },
+    email: {
       type: 'string',
       required: true,
       unique: true,
       isEmail: true,
+      maxLength: 200,
+     
     },
-    fullName: {
+    nombre: {
       type: 'string',
       required: true,
-    },
+      description: 'Full representation of the user\'s name.',
+      maxLength: 60,
    
-    password: {
+    },
+    appellidos: {
       type: 'string',
       required: true,
-      minLength: 6,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 120,
+   
+    },
+    direccion: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 120,
+   
+    },
+    codPostal: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 6,
+   
+    },
+    telefono: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 9,
+   
+    },
+    tipoDocumento: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 3,
+   
+    },
+    numDocumento: {
+      type: 'string',
+      required: true,
+      description: 'Full representation of the user\'s name.',
+      maxLength: 9,
     },
   },
 
@@ -40,12 +88,13 @@ module.exports = {
   },
 
 
-  fn: async function ({id,emailAddress,fullName,password},exits) {
+  fn: async function (inputs,exits) {
 
 
+    var user = inputs;
     
     // All done.
-    return exits.success({id,emailAddress,fullName,password,msg:''});
+    return exits.success({user,msg:''});
 
   }
 

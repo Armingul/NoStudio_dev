@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Homepage',
+  friendlyName: 'Login',
 
 
-  description: 'Homepage something.',
+  description: 'Login something.',
 
 
   inputs: {
@@ -15,7 +15,7 @@ module.exports = {
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/homepage'
+      viewTemplatePath: 'pages/login/login'
     },
   },
 

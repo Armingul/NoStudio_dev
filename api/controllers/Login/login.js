@@ -28,20 +28,18 @@ module.exports = {
   exits: {
     success: {
       responseType: 'view',
-      viewTemplatePath: 'pages/login/dashboard'
+      viewTemplatePath: 'pages/dashboard'
     },
     errorLogin:{
       responseType: 'view',
-      viewTemplatePath: 'pages/homepage'
+      viewTemplatePath: 'pages/login/login'
     }
   },
 
 
   fn: async function ({emailAddress,password},exits) {
 
-    
-    sails.log(emailAddress);
-    sails.log(password);
+   
     
     
     var find =await Admin.findOne({
@@ -50,7 +48,7 @@ module.exports = {
       password:password
 
     });
-    sails.log(find);
+
     if(find){
       return exits.success({msg:""});
     }else{

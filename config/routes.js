@@ -19,7 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { action: 'homepage' },
+  '/': { action: 'login' },
   'GET /users/listUsers': { action: 'users/list-users' },
   'POST /users/add': { action: 'users/create-user' },
   'POST /users/update': { action: 'users/update-user' },

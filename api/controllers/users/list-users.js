@@ -25,18 +25,11 @@ module.exports = {
   fn: async function (inputs,exits) {
   
     var allUsers = await Users.find({});
-
-   
-  
-
     var string=JSON.stringify(allUsers);
-
-   
-
-    var json=JSON.parse(string);
+    var users=JSON.parse(string);
 
     
-    return exits.success({json,msg:''});
+    return exits.success({users,msg:''});
     
 
   }

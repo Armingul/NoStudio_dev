@@ -1,6 +1,4 @@
-<%- include('../login/dashboard.ejs') %>
-
-<h1 class="display-4">Users</h1>
+<%- include('../navbar.ejs') %>
 
 <%if(msg){%>
     <%if(msg=='User eliminado'){%>
@@ -14,26 +12,42 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>FullName</th>
-            <th>Password</th>
             <th>Email</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Codigo postal</th>
+            <th>Telefono</th>
+            <th>Tipo de documento</th>
+            <th>Numero de documento</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <% json.forEach(function(user){ %>
+        <% users.forEach(function(user){ %>
             <tr>
                 <td><%= user.id %></td>
-                <td><%= user.fullName %></td>
-                <td><%= user.password %></td>
-                <td><%= user.emailAddress %></td>
+                <td><%= user.email %></td>
+                <td><%= user.nombre %></td>
+                <td><%= user.appellidos %></td>
+                <td><%= user.direccion %></td>
+                <td><%= user.codPostal %></td>
+                <td><%= user.telefono %></td>
+                <td><%= user.tipoDocumento %></td>
+                <td><%= user.numDocumento %></td>
                 <td>
                     <form id="formulario" action="/users/update" method="POST" >
 
                         <input type="hidden" name="id" value="<%= user.id %>">
-                        <input type="hidden" name="fullName" value="<%= user.fullName %>">
                         <input type="hidden" name="password" value="<%= user.password %>">
-                        <input type="hidden" name="emailAddress" value="<%= user.emailAddress %>">
+                        <input type="hidden" name="email" value="<%= user.email %>">
+                        <input type="hidden" name="nombre" value="<%= user.nombre %>">
+                        <input type="hidden" name="appellidos" value="<%= user.appellidos %>">
+                        <input type="hidden" name="direccion" value="<%= user.direccion %>">
+                        <input type="hidden" name="codPostal" value="<%= user.codPostal %>">
+                        <input type="hidden" name="telefono" value="<%= user.telefono %>">
+                        <input type="hidden" name="tipoDocumento" value="<%= user.tipoDocumento %>">
+                        <input type="hidden" name="numDocumento" value="<%= user.numDocumento %>">
                         <input type="submit" class="btn btn-primary" value="Edit">
                         
 

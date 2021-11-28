@@ -1,41 +1,61 @@
-<%- include('../login/dashboard.ejs') %>
-
+<%- include('../navbar.ejs') %>
 <div class="card" style="width: 40rem;">
     
     <div class="card-body">
-      <!-- <h5 class="card-title">Usuario <%= fullName %></h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Correo: <%= emailAddress %></li>
-      <li class="list-group-item">Password: <%= password %></li>
-   
-    </ul> -->
-
     <%if(msg){%>
-      <%if(msg=='No se ha modificado campos.'){%>
-          <div class="alert alert-warning" role="alert">
+      <%if(msg=='Usuario actualizado'){%>
+          <div class="alert alert-success" role="alert">
               <h3><%- msg%></h3>
             </div>
       <%}else{%>
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-warning" role="alert">
               <h3><%- msg%></h3>
           </div>
       <%}%>
     <%}%>
     <form method="post" action="/users/modifyUser">
-      <input type="hidden" name="id" value="<%= id %>">
+  
+    <div class="form-group">
+        <label for="title">Id Usuario</label>
+        <input name="id" class="form-control" type="text" value="<%=user.id%>" readonly></input>
+    </div>
+    </div>
       <div class="form-group">
-          <label for="title">FullName</label>
-          <input type="text" name="fullName" class="form-control" value="<%= fullName %>" ></input>
-      </div>
-      <div class="form-group">
-          <label for="title">Password</label>
-          <input type="text" name="password" class="form-control" value="<%= password %>" ></input>
-      </div>
-      <div class="form-group">
-          <label for="body">Email</label>
-          <input name="emailAddress" class="form-control" value="<%= emailAddress %>" ></input>
-      </div>
+        <label for="title">Email</label>
+        <input name="email" class="form-control" type="email" pattern="^\s*\S*\s*$" value="<%=user.email%>" required ></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Contraseña</label>
+        <input name="password" class="form-control" type="password" pattern=".{6,}" value="<%=user.password%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Nombre</label>
+        <input type="text" name="nombre" class="form-control"value="<%=user.nombre%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Apellidos</label>
+        <input type="text" name="appellidos" class="form-control" value="<%=user.appellidos%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Direccion</label>
+        <input type="text" name="direccion" class="form-control" value="<%=user.direccion%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Codigo postal</label>
+        <input type="text" name="codPostal" class="form-control" value="<%=user.codPostal%>" pattern=".{5,5}" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Telefono</label>
+        <input type="text" name="telefono" class="form-control" value="<%=user.telefono%>" pattern=".{9,9}" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Tipo de documento</label>
+        <input type="text" name="tipoDocumento" class="form-control" value="<%=user.tipoDocumento%>" pattern=".{3,3}"  required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Numero de documento</label>
+        <input type="text" name="numDocumento" class="form-control"  value="<%=user.numDocumento%>"  pattern=".{9,9}" required></input>
+    </div>
       
       <input type="submit" value="Submit" class="btn btn-primary">
   </div>
