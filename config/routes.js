@@ -19,7 +19,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-<<<<<<< HEAD
 
     /* MISC */
   'GET /dashboard': { action: 'dashboard' },
@@ -27,9 +26,7 @@ module.exports.routes = {
   '/': { action: 'homepage' },
 
     /* USERS */
-=======
   '/': { action: 'login' },
->>>>>>> ef002d6a340ad9f6eb8271237c9ac7b29190fbb0
   'GET /users/listUsers': { action: 'users/list-users' },
   'POST /users/add': { action: 'users/create-user' },
   'POST /users/update': { action: 'users/update-user' },
