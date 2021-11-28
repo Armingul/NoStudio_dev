@@ -23,16 +23,12 @@ module.exports = {
 
   fn: async function (inputs,exits) {
   
-    var allProducts = await Products.find({
-      
-    });
-
-    
+    var allProducts = await Products.find({});
     var string=JSON.stringify(allProducts);
-    var json=JSON.parse(string);
-    console.log(json);
+    var products=JSON.parse(string);
+
    
-    return exits.success({json});
+    return exits.success({products,msg:''});
     
 
   }
