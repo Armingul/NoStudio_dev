@@ -1,0 +1,50 @@
+<%- include('../navbar.ejs') %>
+<div class="card" style="width: 40rem;">
+    
+    <div class="card-body">
+    <%if(msg){%>
+      <%if(msg=='Producto actualizado'){%>
+          <div class="alert alert-success" role="alert">
+              <h3><%- msg%></h3>
+            </div>
+      <%}else{%>
+          <div class="alert alert-warning" role="alert">
+              <h3><%- msg%></h3>
+          </div>
+      <%}%>
+    <%}%>
+    <form method="post" action="/products/update-product">
+  
+    <div class="form-group">
+        <label for="title">Id Producto</label>
+        <input name="id" class="form-control" type="text" value="<%=product.id%>" readonly></input>
+    </div>
+    </div>
+      <div class="form-group">
+        <label for="title">Nombre</label>
+        <input name="name" class="form-control" type="text" value="<%=product.name%>" required ></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Imagen</label>
+        <input name="image" class="form-control" type="text" value="<%=product.image%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Descripción</label>
+        <input type="text" name="description" class="form-control"value="<%=product.description%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Precio</label>
+        <input type="number" name="price" class="form-control" value="<%=product.price%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Stock</label>
+        <input type="number" name="stock" class="form-control" value="<%=product.stock%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Talla</label>
+        <input type="text" name="size" class="form-control" value="<%=product.size%>" required></input>
+    </div>
+      
+      <input type="submit" value="Submit" class="btn btn-primary">
+  </div>
+</form>

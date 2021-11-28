@@ -38,6 +38,10 @@ module.exports.routes = {
     /* PRODUCTS */
   'GET /products/list-products': { action: 'products/list-products' },
   'GET /products/show-create-product': { action: 'products/show-create-product' },
+  'POST /products/add': { action: 'products/create-product' },
+  'POST /products/update': { action: 'products/show-update-product' },
+  'POST /products/update-product': { action: 'products/update-product' },
+  'POST /products/delete': { action: 'products/delete-product' },
 
 
 

@@ -60,10 +60,27 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
+  fn: async function (inputs, exits) {
+
+    var createProduct=await Products.create({
+      name:inputs.name,
+      image:inputs.image,
+      description:inputs.description,
+      price:inputs.price,
+      stock:inputs.stock,
+      size:inputs.size,
+    }).fetch();
+
+    sails.log(createProduct);
+
+    
 
     // All done.
-    return;
+    if(createProduct){
+      return exits.success({msg: "Producto creado"});
+    }else{
+      return exits.errorCreate({msg: "Error al crear el producto"});
+    }
 
   }
 

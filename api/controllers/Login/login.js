@@ -41,7 +41,7 @@ module.exports = {
 
    
     
-    sails.log(this.req.sessionID);
+    //sails.log(this.req.sessionID);
     var find =await Admin.findOne({
       
       emailAddress:emailAddress,
