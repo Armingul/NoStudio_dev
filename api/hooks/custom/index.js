@@ -12,7 +12,7 @@ module.exports = function defineCustomHook(sails) {
      */
     initialize: async function () {
 
-      //sails.log.info('Initializing project hook... (`api/hooks/custom/`)');
+      sails.log.info('Initializing project hook... (`api/hooks/custom/`)');
 
       // Check Stripe/Sendgrid configuration (for billing and emails).
       var IMPORTANT_STRIPE_CONFIG = ['stripeSecret', 'stripePublishableKey'];
@@ -54,7 +54,7 @@ module.exports = function defineCustomHook(sails) {
           problems.push('No `sails.config.custom.internalEmailAddress` was configured.');
         }
 
-/*         sails.log.verbose(
+sails.log.verbose(
 `Some optional settings have not been configured yet:
 ---------------------------------------------------------------------
 ${problems.join('\n')}
@@ -63,7 +63,7 @@ Until this is addressed, this app's ${missingFeatureText} features
 will be disabled and/or hidden in the UI.
 
  [?] If you're unsure or need advice, come by https://sailsjs.com/support
----------------------------------------------------------------------${suffix}`); */
+---------------------------------------------------------------------${suffix}`); 
       }//ﬁ
 
       // Set an additional config keys based on whether Stripe config is available.
@@ -147,7 +147,7 @@ will be disabled and/or hidden in the UI.
               configuredBaseHostname = url.parse(sails.config.custom.baseUrl).host;
             } catch (unusedErr) { /*…*/}
             if ((sails.config.environment === 'staging' || sails.config.environment === 'production') && !req.isSocket && req.method === 'GET' && req.hostname !== configuredBaseHostname) {
-             // sails.log.info('Redirecting GET request from `'+req.hostname+'` to configured expected host (`'+configuredBaseHostname+'`)...');
+            sails.log.info('Redirecting GET request from `'+req.hostname+'` to configured expected host (`'+configuredBaseHostname+'`)...');
               return res.redirect(sails.config.custom.baseUrl+req.url);
             }//•
 

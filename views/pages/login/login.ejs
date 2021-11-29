@@ -1,10 +1,14 @@
 <div class="boxLogin" >
 
     <div class="row">
+        
         <div class="col-md-6">
             <div class="card">
                 <form  class="box" id="formulario" action="/login" method="post" >
-                    <h1>Login</h1>
+                    <div class="contenedorTitulo">
+                        <img src="/images/Logo_White-01.png" class="img-fluid" alt="Responsive image">
+                      </div>
+                 
                     <%if(msg){%>
                         <%if(msg=='Login incorrecto'){%>
                             <div class="alert alert-danger" role="alert">
