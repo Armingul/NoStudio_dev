@@ -28,26 +28,26 @@
             <tr>
                 <td><%= user.id %></td>
                 <td><%= user.email %></td>
-                <td><%= user.nombre %></td>
-                <td><%= user.appellidos %></td>
-                <td><%= user.direccion %></td>
-                <td><%= user.codPostal %></td>
-                <td><%= user.telefono %></td>
-                <td><%= user.tipoDocumento %></td>
-                <td><%= user.numDocumento %></td>
+                <td><%= user.name %></td>
+                <td><%= user.surnames %></td>
+                <td><%= user.address %></td>
+                <td><%= user.postalCode %></td>
+                <td><%= user.phoneNumber %></td>
+                <td><%= user.documentType %></td>
+                <td><%= user.documentNumber %></td>
                 <td>
                     <form id="formulario" action="/users/update" method="POST" >
 
                         <input type="hidden" name="id" value="<%= user.id %>">
                         <input type="hidden" name="password" value="<%= user.password %>">
                         <input type="hidden" name="email" value="<%= user.email %>">
-                        <input type="hidden" name="nombre" value="<%= user.nombre %>">
-                        <input type="hidden" name="appellidos" value="<%= user.appellidos %>">
-                        <input type="hidden" name="direccion" value="<%= user.direccion %>">
-                        <input type="hidden" name="codPostal" value="<%= user.codPostal %>">
-                        <input type="hidden" name="telefono" value="<%= user.telefono %>">
-                        <input type="hidden" name="tipoDocumento" value="<%= user.tipoDocumento %>">
-                        <input type="hidden" name="numDocumento" value="<%= user.numDocumento %>">
+                        <input type="hidden" name="name" value="<%= user.name %>">
+                        <input type="hidden" name="surnames" value="<%= user.surnames %>">
+                        <input type="hidden" name="address" value="<%= user.address %>">
+                        <input type="hidden" name="postalCode" value="<%= user.postalCode %>">
+                        <input type="hidden" name="phoneNumber" value="<%= user.phoneNumber %>">
+                        <input type="hidden" name="documentType" value="<%= user.documentType %>">
+                        <input type="hidden" name="documentNumber" value="<%= user.documentNumber %>">
                         <input type="submit" class="btn btn-primary" value="Edit">
                         
 

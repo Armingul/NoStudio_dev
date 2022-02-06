@@ -51,7 +51,7 @@ module.exports.datastores = {
     /* adapter: 'sails-mysql',
     url: 'mysql://root:@localhost:3306/prueba', */
     adapter: 'sails-mongo',
-    url: 'mongodb://misnengh:Tikitaka1996@nosql.6frii.mongodb.net/',
+    url: 'mongodb+srv://NoStudio:AdminNoStudio@cluster0.sorbo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
 
   },
 

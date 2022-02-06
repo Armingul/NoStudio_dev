@@ -18,7 +18,7 @@ module.exports = {
       required: true,
       description: 'Name of the product',
       maxLength: 100,
-
+     
     },
     image: {
       type: 'string',
@@ -31,7 +31,7 @@ module.exports = {
       required: true,
       description: 'Description of the product.',
       maxLength: 200,
-
+   
     },
 
     price: {
@@ -40,17 +40,17 @@ module.exports = {
       description: 'Price of the product.',
     },
 
-    stock: {
-      type: 'number',
-      required: true,
-      description: 'Stock of the product.',
-    },
-
-    size: {
+    brand: {
       type: 'string',
       required: true,
-      description: 'Size of the product.',
-      maxLength: 30,
+      description: 'Brand of the product',
+      maxLength: 50,
+    },
+
+    active: {
+      type: 'boolean',
+      default: true,
+      description: 'Is the product active',
     },
   },
 
@@ -82,8 +82,7 @@ module.exports = {
     var string = JSON.stringify(productFound);
     var json = JSON.parse(string);
 
-    if (json.name === product.name && json.image === product.image && json.description === product.description && json.price === product.price && json.stock === product.stock
-      && json.size === product.size) {
+    if (json.name === product.name && json.image === product.image && json.description === product.description && json.price === product.price && json.brand === product.brand) {
       return exits.notChange({ product, msg: "No se han modificado campos" });
     } else {
       var update = await Products.updateOne({
@@ -93,8 +92,7 @@ module.exports = {
         image: inputs.image,
         description: inputs.description,
         price: inputs.price,
-        stock: inputs.stock,
-        size: inputs.size
+        brand: inputs.brand,
       });
 
       if (update) {

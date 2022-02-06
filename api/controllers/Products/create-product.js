@@ -36,19 +36,18 @@ module.exports = {
       description: 'Price of the product.',
     },
 
-    stock: {
-      type: 'number',
-      required: true,
-      description: 'Stock of the product.',   
-    },
-
-    size: {
+    brand: {
       type: 'string',
       required: true,
-      description: 'Size of the product.',
-      maxLength: 30,   
+      description: 'Brand of the product',
+      maxLength: 50,
     },
 
+    active: {
+      type: 'boolean',
+      default: true,
+      description: 'Is the product active',
+    },
   },
 
 
@@ -67,8 +66,9 @@ module.exports = {
       image:inputs.image,
       description:inputs.description,
       price:inputs.price,
-      stock:inputs.stock,
-      size:inputs.size,
+      brand:inputs.brand,
+      active:true,
+
     }).fetch();
 
     sails.log(createProduct);
@@ -82,7 +82,6 @@ module.exports = {
       return exits.errorCreate({msg: "Error al crear el producto"});
     }
 
-  }
-
+    }
 
 };

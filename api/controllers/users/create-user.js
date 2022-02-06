@@ -10,6 +10,14 @@ module.exports = {
 
 
   inputs: {
+
+    email: {
+      type: 'string',
+      required: true,
+      unique: true,
+      isEmail: true,
+      maxLength: 200,
+    },
  
     password: {
       type: 'string',
@@ -18,60 +26,53 @@ module.exports = {
       protect: true,
  
     },
-    email: {
-      type: 'string',
-      required: true,
-      unique: true,
-      isEmail: true,
-      maxLength: 200,
-     
-    },
-    nombre: {
+
+    name: {
       type: 'string',
       required: true,
       description: 'Full representation of the user\'s name.',
       maxLength: 60,
    
     },
-    appellidos: {
+    surnames: {
       type: 'string',
       required: true,
-      description: 'Full representation of the user\'s name.',
+      description: 'User\'s surnames.',
+      maxLength: 100,
+   
+    },
+  
+    address: {
+      type: 'string',
+      required: true,
+      description: 'User\'s address. ',
       maxLength: 120,
    
     },
-    direccion: {
+    postalCode: {
       type: 'string',
       required: true,
-      description: 'Full representation of the user\'s name.',
-      maxLength: 120,
-   
-    },
-    codPostal: {
-      type: 'string',
-      required: true,
-      description: 'Full representation of the user\'s name.',
+      description: 'User\'s postal code.',
       maxLength: 6,
    
     },
-    telefono: {
-      type: 'string',
+    phoneNumber: {
+      type: 'number',
       required: true,
-      description: 'Full representation of the user\'s name.',
-      maxLength: 9,
+      description: 'User\'s phone number.',
    
     },
-    tipoDocumento: {
+    documentType: {
       type: 'string',
       required: true,
-      description: 'Full representation of the user\'s name.',
+      description: 'User\'s document type',
       maxLength: 3,
    
     },
-    numDocumento: {
+    documentNumber: {
       type: 'string',
       required: true,
-      description: 'Full representation of the user\'s name.',
+      description: 'User\'s document number.',
       maxLength: 9,
     },
 
@@ -103,16 +104,17 @@ module.exports = {
     if(find){
       return exits.success({msg: "Ya existe un usuario con ese correo."});
     }else{
-      var createUser=await Users.create({
-        password:inputs.password,
+      var createUser=await Users.create({    
         email:inputs.email,
-        nombre:inputs.nombre,
-        appellidos:inputs.appellidos,
-        direccion:inputs.direccion,
-        codPostal:inputs.codPostal,
-        telefono:inputs.telefono,
-        tipoDocumento:inputs.tipoDocumento,
-        numDocumento:inputs.numDocumento
+        password:inputs.password,
+        name:inputs.name,
+        surnames:inputs.surnames,
+        address:inputs.address,
+        postalCode:inputs.postalCode,
+        phoneNumber:inputs.phoneNumber,
+        documentType:inputs.documentType,
+        documentNumber:inputs.documentNumber,
+        active: true
       }).fetch();
   
     

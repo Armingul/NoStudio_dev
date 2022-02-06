@@ -29,10 +29,10 @@ module.exports.routes = {
   '/': { action: 'login' },
   'GET /users/listUsers': { action: 'users/list-users' },
   'POST /users/add': { action: 'users/create-user' },
-  'POST /users/update': { action: 'users/update-user' },
-  'POST /users/modifyUser': { action: 'users/modify-user' },
+  'POST /users/update': { action: 'users/show-update-user' },
+  'POST /users/modifyUser': { action: 'users/update-user' },
   'POST /users/delete': { action: 'users/delete-user' },
-  'GET /users/showAdd': { action: 'users/mostrar-create-user' },
+  'GET /users/showAdd': { action: 'users/show-create-user' },
 
 
     /* PRODUCTS */

@@ -1,7 +1,8 @@
+
 module.exports = {
 
 
-  friendlyName: 'Modify user',
+  friendlyName: 'Update user',
 
 
   description: '',
@@ -28,7 +29,6 @@ module.exports = {
       protect: true,
  
     },
-    
     name: {
       type: 'string',
       required: true,
@@ -85,52 +85,17 @@ module.exports = {
       responseType: 'view',
       viewTemplatePath: 'pages/user/updateUser'
     },
-    notChange: {
-      responseType: 'view',
-      viewTemplatePath: 'pages/user/updateUser'
-    },
-    updateError: {
-      responseType: 'view',
-      viewTemplatePath: 'pages/user/updateUser'
-    },
   },
 
 
   fn: async function (inputs,exits) {
-    var user =inputs;
+
+
+    var user = inputs;
+    
     // All done.
+    return exits.success({user,msg:''});
 
-    var userFind = await Users.findOne({
-
-      id:inputs.id
-    });
-    var string=JSON.stringify(userFind);
-    var json=JSON.parse(string);
- 
-    if(json.password===user.password && json.email===user.email && json.name===user.name && json.surnames===user.surnames && json.address===user.address
-      && json.postalCode===user.postalCode && json.phoneNumber===user.phoneNumber && json.documentType===user.documentType && json.documentNumber === user.documentNumber){
-      return exits.notChange({user,msg:"No se ha modificado campos"});
-    }else{
-      var update = await Users.updateOne({
-        id:inputs.id,
-      }).set({
-        password:inputs.password,
-        email:inputs.email,
-        name:inputs.name,
-        surnames:inputs.surnames,
-        address:inputs.address,
-        postalCode:inputs.postalCode,
-        phoneNumber:inputs.phoneNumber,
-        documentType:inputs.documentType,
-        documentNumber:inputs.documentNumber
-      });
-
-      if(update){
-        return exits.success({user,msg:'Usuario actualizado'});
-      }else{
-        return exits.updateError({user,msg:'Ha habido un error al actualizar el usuario'});
-      }
-    }
   }
 
 
