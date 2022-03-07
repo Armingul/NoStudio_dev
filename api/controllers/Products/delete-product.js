@@ -28,7 +28,13 @@ module.exports = {
       await Products.destroy({
         id:id
       });
+
+      await ProductSize.destroy({
+        idProduct:id
+      });
       // All done.
+
+
       var allProducts = await Products.find({});
       var string=JSON.stringify(allProducts);
       var products=JSON.parse(string);

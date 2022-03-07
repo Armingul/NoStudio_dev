@@ -1,3 +1,5 @@
+
+
 module.exports = {
 
 
@@ -36,10 +38,10 @@ module.exports = {
       description: 'Price of the product.',
     },
 
-    brand: {
+    category: {
       type: 'string',
       required: true,
-      description: 'Brand of the product',
+      description: 'Category of the product',
       maxLength: 50,
     },
 
@@ -48,6 +50,20 @@ module.exports = {
       default: true,
       description: 'Is the product active',
     },
+
+    size: {
+      type: 'json',
+      description: 'Array of sizes of the product',
+      columnType: "array",
+    },
+
+    stock: {
+      type: 'json',
+      description: 'Array of stock of the size of the product',
+      columnType: "array",
+    },
+
+
   },
 
 
@@ -55,7 +71,7 @@ module.exports = {
     success: {
       responseType: 'view',
       viewTemplatePath: 'pages/products/create-product'
-    }
+    },
   },
 
 
@@ -66,18 +82,28 @@ module.exports = {
       image:inputs.image,
       description:inputs.description,
       price:inputs.price,
-      brand:inputs.brand,
+      category:inputs.category,
       active:true,
 
     }).fetch();
 
-    sails.log(createProduct);
+    if (inputs.stock == "") {
+      inputs.stock = 0;
+    } 
 
-    
+    var createProductSize = await ProductSize.create({
+      idProduct: createProduct.id,
+      size: inputs.size,
+      stock: inputs.stock,
+
+    }).fetch();
+
+    console.log(createProduct);
+    console.log(createProductSize);
 
     // All done.
     if(createProduct){
-      return exits.success({msg: "Producto creado"});
+        return exits.success({msg: "Producto creado."});   
     }else{
       return exits.errorCreate({msg: "Error al crear el producto"});
     }

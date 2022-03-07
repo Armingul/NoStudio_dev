@@ -17,7 +17,7 @@
             <th>Imagen</th>
             <th>Descripción</th>
             <th>Precio</th>
-            <th>Marca</th>
+            <th>Categoría</th>
         </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@
                 <td><%= product.image %></td>
                 <td><%= product.description%></td>
                 <td><%= product.price%></td>
-                <td><%= product.brand%></td>
+                <td><%= product.category%></td>
                 <td>
                     <form id="formulario" action="/products/update" method="POST" >
 
@@ -37,7 +37,7 @@
                         <input type="hidden" name="image" value="<%= product.image %>">
                         <input type="hidden" name="description" value="<%= product.description %>">
                         <input type="hidden" name="price" value="<%= product.price %>">
-                        <input type="hidden" name="brand" value="<%= product.brand %>">
+                        <input type="hidden" name="category" value="<%= product.category %>">
                         <input type="submit" class="btn btn-primary" value="Edit">
                         
 

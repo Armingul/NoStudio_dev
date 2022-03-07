@@ -30,7 +30,7 @@ module.exports = {
         type: 'string',
         required: true,
         description: 'Description of the product.',
-        maxLength: 200,
+        maxLength: 500,
      
       },
   
@@ -40,10 +40,10 @@ module.exports = {
         description: 'Price of the product.',
       },
   
-      brand: {
+      category: {
         type: 'string',
         required: true,
-        description: 'Brand of the product',
+        description: 'category of the product',
         maxLength: 50,
       },
   

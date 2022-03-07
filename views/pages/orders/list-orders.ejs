@@ -1,0 +1,68 @@
+<%- include('../navbar.ejs') %>
+  <h1 class="display-4">Pedidos</h1>
+
+  <%if(msg){%>
+    <%if(msg=='Order eliminado'){%>
+      <div class="alert alert-success" role="alert">
+        <h3>
+          <%- msg%>
+        </h3>
+      </div>
+      <%}%>
+        <%}%>
+
+          <% orders.forEach(function(order){ %>
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header">
+                Pedido con id <%= order.id %>
+              </div>
+              <div class="card-body">
+
+                <p class="card-text">Productos en el pedido:
+                  <% order.orderItems.forEach(function(orderItem){ %>
+                    <%= orderItem.name %>
+                      <% }) %>
+                </p>
+
+                <p class="card-text">Usuario del pedido: <%= order.shippingAddress.fullName %>
+                </p>
+
+                <div class="row">
+                  <% if(order.status=="toSend" ) { %>
+                    <span class="badge bg-warning text-dark" style="width: 5%; height: 5%;">Por enviar</span>
+                    <% } %>
+                      <% if(order.status=="sent" ) { %>
+                        <span class="badge bg-warning text-dark" style="width: 5%; height: 5%;">Enviado</span>
+                        <% } %>
+                          <% if(order.status=="recieved" ) { %>
+                            <span class="badge bg-success" style="width: 5%; height: 5%;">Recibido</span>
+                            <% } %>
+                              <% if(order.status=="returned" ) { %>
+                                <span class="badge bg-danger" style="width: 5%; height: 5%;">Devuelto</span>
+                                <% } %>
+                                  <% if(order.status=="cancelled" ) { %>
+                                    <span class="badge bg-danger" style="width: 5%; height: 5%;">Cancelado</span>
+                                    <% } %>
+
+
+
+                                      <form method="post" action="/orders/updateStatus" style="width: 50%;">
+                                        <select class="form-select" name="status" aria-label="Default select example"
+                                          style="width: 25%; margin-left: 20px;">
+                                          <option value="toSend">Por enviar</option>
+                                          <option value="sent">Enviado</option>
+                                          <option value="recieved">Recibido</option>
+                                          <option value="returned">Devuelto</option>
+                                          <option value="cancelled">Cancelado</option>
+                                        </select>
+                                        <input type="hidden" name="id" value="<%= order.id %>">
+                                        <input type="submit" value="Cambiar estado" class="btn btn-primary"
+                                          style="width: 25%; margin-left: 20px;">
+                                      </form>
+
+                </div>
+              </div>
+            </div>
+            <% }) %>

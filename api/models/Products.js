@@ -5,15 +5,15 @@
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
-module.exports = {
+ module.exports = {
 
   attributes: {
 
     name: { type: 'String', required: true},
-    image: {type: 'String', required: true},
     description: {type: 'String', required: true},
+    image: {type: 'String', required: true},
     price: {type: 'Number', required: true},
-    brand: {type: 'String', required: true},
+    category: {type: 'String', required: true},
     active: {type: 'Boolean', required: true} 
   },
 

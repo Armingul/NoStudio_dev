@@ -24,25 +24,45 @@
 
 
                         <form method="post" action="/products/add">
-                            <div class="form-group mx-auto">
+                            <div class=" row">
+                            <div class="form-group col-md-4">
                                 <label for="title">Nombre del producto.</label>
                                 <input type="text" name="name" class="form-control" required></input>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-4">
                                 <label for="title">Imagen (TO DO)</label>
                                 <input type="text" name="image" class="form-control" required></input>
                             </div>
-                            <div class="form-group">
-                                <label for="body">Descripción del producto.</label>
-                                <input name="description" class="form-control" required></input>
                             </div>
-                            <div class="form-group">
-                                <label for="body">Precio.</label>
-                                <input name="price" class="form-control" type="number" required></input>
+                            <div class="row">
+                                <div class="form-group  col-md-4">
+                                    <label for="body">Descripción del producto.</label>
+                                    <input name="description" class="form-control" required></input>
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label for="body">Precio.</label>
+                                    <input name="price" class="form-control" type="number" required></input>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="body">Marca.</label>
-                                <input name="brand" class="form-control" required></input>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="body">Categoría.</label>
+                                    <input name="category" class="form-control" required></input>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label for="body">Talla.</label>
+                                    <input name="size" class="form-control"></input>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="body">Stock.</label>
+                                    <input name="stock" class="form-control" type="number"></input>
+                                </div>
+
+                                <div class="btn col-md-4">
+                                    <button type="button" id="add" class="btn btn-primary float-left">+</button>
+                                </div>
                             </div>
                             <input type="submit" value="Submit" class="btn btn-primary">
                         </form>
