@@ -1,0 +1,48 @@
+<%- include('../navbar.ejs') %>
+
+    <ol class="breadcrumb">
+    </ol>
+
+
+    <h1 class="display-4">Añadir Proveedor</h1>
+
+    <%if(msg){%>
+        <%if(msg=='Proveedor creado'){%>
+            <div class="alert alert-success" role="alert">
+                <h3>
+                    <%- msg%>
+                </h3>
+            </div>
+            <%}else{%>
+                <div class="alert alert-danger" role="alert">
+                    <h3>
+                        <%- msg%>
+                    </h3>
+                </div>
+                <%}%>
+                    <%}%>
+
+
+                        <form method="post" action="/suppliers/add">
+                            <div class=" row">
+                                <div class="form-group col-md-4">
+                                    <label for="title">Nombre del proveedor.</label>
+                                    <input type="text" name="name" class="form-control" required></input>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="title">Email.</label>
+                                    <input type="text" name="email" class="form-control" required></input>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group  col-md-4">
+                                    <label for="body">Dirección.</label>
+                                    <input type="text" name="location" class="form-control" required></input>
+                                </div>
+                                <div class="form-group  col-md-4">
+                                    <label for="body">Categoría.</label>
+                                    <input type="text" name="category" class="form-control" required></input>
+                                </div>
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>

@@ -1,0 +1,55 @@
+<%- include('../navbar.ejs') %>
+
+    <ol class="breadcrumb">
+    </ol>
+
+
+    <h1 class="display-4">Añadir Pedido a Proveedor.</h1>
+
+    <%if(msg){%>
+        <%if(msg=='Pedido al proveedor creado.'){%>
+            <div class="alert alert-success" role="alert">
+                <h3>
+                    <%- msg%>
+                </h3>
+            </div>
+            <%}else{%>
+                <div class="alert alert-danger" role="alert">
+                    <h3>
+                        <%- msg%>
+                    </h3>
+                </div>
+                <%}%>
+                    <%}%>
+
+
+                        <form name="supplyOrderForm" method="post" action="/supply-orders/add">
+                            <div class=" row">
+                                <div class="form-group col-md-4">
+                                    <label for="body">Seleccione el proveedor:</label>
+                                    <select class="form-select" name="idSupplier" aria-label="select-supplier" required>
+                                        <option selected disabled>Seleccionar uno.</option>
+                                        <% suppliers.forEach(function(supplier){ %>
+                                            <option value=<%=supplier.id %>> <%= supplier.name %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="body">Productos en el pedido:</label>
+                                    <input type="text" name="materials" class="form-control" required></input>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group  col-md-4">
+                                    <label for="body">Estado.</label>
+                                    <select class="form-select" name="status" aria-label="select-status" required>
+                                        <option selected disabled>Seleccionar uno.</option>
+                                        <option value="toOrder">Por pedir</option>
+                                        <option value="ordered">Pedido</option>
+                                        <option value="recieved">Recibido</option>
+                                        <option value="cancelled">Cancelado</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>

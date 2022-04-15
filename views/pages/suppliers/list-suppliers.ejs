@@ -1,0 +1,51 @@
+<%- include('../navbar.ejs') %>
+
+<%if(msg){%>
+    <%if(msg=='Proveedor eliminado'){%>
+        <div class="alert alert-success" role="alert">
+            <h3><%- msg%></h3>
+          </div>
+    <%}%>
+<%}%>
+
+<h1 class="display-4">Proveedores</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id Proveedor</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% suppliers.forEach(function(supplier){ %>
+            <tr>
+                <td><%= supplier.id %></td>
+                <td><%= supplier.name %></td>
+                <td><%= supplier.email %></td>
+                <td><%= supplier.location %></td>
+                <td><%= supplier.category%></td>
+                <td>
+                    <form id="formulario" action="/suppliers/update" method="POST" >
+
+                        <input type="hidden" name="id" value="<%= supplier.id %>">
+                        <input type="hidden" name="name" value="<%= supplier.name %>">
+                        <input type="hidden" name="email" value="<%= supplier.email %>">
+                        <input type="hidden" name="location" value="<%= supplier.location %>">
+                        <input type="hidden" name="category" value="<%= supplier.category %>">
+                        <input type="submit" class="btn btn-primary" value="Edit">
+                        
+
+                    </form>
+                   
+                    <form id="formulario" action="/suppliers/delete" method="POST">
+                        <input type="hidden" name="id" value="<%= supplier.id %>">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

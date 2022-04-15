@@ -1,0 +1,42 @@
+<%- include('../navbar.ejs') %>
+<div class="card" style="width: 40rem;">
+    
+    <div class="card-body">
+    <%if(msg){%>
+      <%if(msg=='Proveedor actualizado'){%>
+          <div class="alert alert-success" role="alert">
+              <h3><%- msg%></h3>
+            </div>
+      <%}else{%>
+          <div class="alert alert-warning" role="alert">
+              <h3><%- msg%></h3>
+          </div>
+      <%}%>
+    <%}%>
+    <form method="post" action="/suppliers/update-supplier">
+  
+    <div class="form-group">
+        <label for="title">Id Proveedor</label>
+        <input name="id" class="form-control" type="text" value="<%=supplier.id%>" readonly></input>
+    </div>
+    </div>
+      <div class="form-group">
+        <label for="title">Nombre</label>
+        <input name="name" class="form-control" type="text" value="<%=supplier.name%>" required ></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Email</label>
+        <input name="email" class="form-control" type="text" value="<%=supplier.email%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Dirección</label>
+        <input type="text" name="location" class="form-control"value="<%=supplier.location%>" required></input>
+    </div>
+    <div class="form-group">
+        <label for="title">Categoría</label>
+        <input type="text" name="category" class="form-control" value="<%=supplier.category%>" required></input>
+    </div>
+      
+      <input type="submit" value="Submit" class="btn btn-primary">
+  </div>
+</form>

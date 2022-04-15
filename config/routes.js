@@ -20,12 +20,12 @@ module.exports.routes = {
   ***************************************************************************/
 
 
-    /* MISC */
+  /* MISC */
   'GET /dashboard': { action: 'dashboard' },
   'POST /login': { action: 'Login/login' },
   '/': { action: 'homepage' },
 
-    /* USERS */
+  /* USERS */
   '/': { action: 'login' },
   'GET /users/listUsers': { action: 'users/list-users' },
   'POST /users/add': { action: 'users/create-user' },
@@ -35,7 +35,7 @@ module.exports.routes = {
   'GET /users/showAdd': { action: 'users/show-create-user' },
 
 
-    /* PRODUCTS */
+  /* PRODUCTS */
   'GET /products/list-products': { action: 'products/list-products' },
   'GET /products/show-create-product': { action: 'products/show-create-product' },
   'POST /products/add': { action: 'products/create-product' },
@@ -43,12 +43,24 @@ module.exports.routes = {
   'POST /products/update-product': { action: 'products/update-product' },
   'POST /products/delete': { action: 'products/delete-product' },
 
-    /* ORDERS */
+  /* ORDERS */
   'GET /orders/list-orders': { action: 'orders/list-orders' },
   'POST /orders/updateStatus': { action: 'orders/update-status' },
 
-  
+  /* SUPPLIERS */
 
+  'GET /suppliers/list-suppliers': { action: 'suppliers/list-suppliers' },
+  'GET /suppliers/show-create-suppliers': { action: 'suppliers/show-create-suppliers' },
+  'POST /suppliers/add': { action: 'suppliers/create-supplier' },
+  'POST /suppliers/update': { action: 'suppliers/show-update-supplier' },
+  'POST /suppliers/update-supplier': { action: 'suppliers/update-supplier' },
+  'POST /suppliers/delete': { action: 'suppliers/delete-supplier' },
+
+    /* SUPPLY ORDERS */
+    'GET /supply-orders/list-supply-orders': { action: 'supplyOrders/list-supply-orders' },
+    'GET /supply-orders/show-create-supply-order': { action: 'supplyOrders/show-create-supply-order' },
+    'POST /supply-orders/add': { action: 'supplyOrders/create-supply-order' },
+    'POST /supply-orders/updateStatus': { action: 'supplyOrders/update-status' },
 
   /***************************************************************************
   *                                                                          *
